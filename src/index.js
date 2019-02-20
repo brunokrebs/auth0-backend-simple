@@ -59,8 +59,8 @@ const checkJwt = jwt({
 });
 
 // insert a new question
-app.post('/', (req, res) => {
-  const {title, checkJwt, description} = req.body;
+app.post('/', checkJwt, (req, res) => {
+  const {title, description} = req.body;
   const newQuestion = {
     id: questions.length + 1,
     title,
